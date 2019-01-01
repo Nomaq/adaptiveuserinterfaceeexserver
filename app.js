@@ -37,9 +37,10 @@ app.set('view engine', 'ejs')
  * import routes/index.js
  * import routes/users.js
  */ 
-var index = require('./routes/index')
-var users = require('./routes/users')
-var account = require('./routes/account')
+var index = require('./routes/index');
+var users = require('./routes/users');
+var account = require('./routes/account');
+var user = require('./routes/user');
  
  
 /**
@@ -109,7 +110,7 @@ app.use(flash())
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -126,9 +127,10 @@ app.use(function (req, res, next) {
 });
  
  
-app.use('/', index)
-app.use('/users', users)
-app.use('/account', account)
+app.use('/', index);
+app.use('/users', users);
+app.use('/account', account);
+app.use('/user', user);
  
 app.listen(3005, function(){
     console.log('Server running at port 3000: http://127.0.0.1:3005')
